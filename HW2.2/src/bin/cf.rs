@@ -1,7 +1,9 @@
 fn main() {
     let args: Vec<String> = std::env::args().collect();
-    let y_arg = if args.len() < 2 { "" } else { &args[1]};
-
+    if args.len() < 2 {
+        panic!("No Celcius specified");
+    }
+    let y_arg: &String = &args[1];
     let y: f32 = y_arg.parse().unwrap_or(0.0);
 
 println!("{} degree Celcius converts to {} degree Fahrenheit", y, calculate_fahrenheit(y));
