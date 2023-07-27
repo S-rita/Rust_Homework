@@ -25,7 +25,7 @@ fn negative_number() -> TestResult {
 }
 
 #[test]
-fn triangle_1() -> TestResult {
+fn arrow_1() -> TestResult {
     Command::cargo_bin("arrow")
     .unwrap()
     .args(&["1"])
@@ -37,7 +37,7 @@ fn triangle_1() -> TestResult {
 }
 
 #[test]
-fn triangle_2() -> TestResult {
+fn arrow_2() -> TestResult {
     Command::cargo_bin("arrow")
         .unwrap()
         .args(&["2"])
@@ -49,7 +49,7 @@ fn triangle_2() -> TestResult {
 }
 
 #[test]
-fn no_nargs() -> TestResult {
+fn rno_args() -> TestResult {
     Command::cargo_bin("reverse_arrow")
         .unwrap()
         .assert()
@@ -59,7 +59,7 @@ fn no_nargs() -> TestResult {
 }
 
 #[test]
-fn triangle_n3() -> TestResult {
+fn rarrow_3() -> TestResult {
     Command::cargo_bin("reverse_arrow")
         .unwrap()
         .args(&["3"])
