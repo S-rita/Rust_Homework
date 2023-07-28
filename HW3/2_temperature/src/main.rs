@@ -10,19 +10,19 @@ fn main(){
     let y: f32 = args[2].parse().unwrap();
     let z: f32 = args[3].parse().unwrap();
 
-    let result1:f32 = Rust_hw3_2::calc1(x, y, z);
-    let result2:f32 = Rust_hw3_2::calc2(x, y, z);
-    let result3:f32 = Rust_hw3_2::calc3(x, y, z);
-    let result4:f32 = Rust_hw3_2::calc4(x, y, z);
-    let result5:f32 = Rust_hw3_2::calc5(x, y, z);
-    let result6:f32 = Rust_hw3_2::calc6(x, y, z);
+    let result1:f32 = Rust_hw3_2::calc1(x);
+    let result2:f32 = Rust_hw3_2::calc2(x, z);
+    let result3:f32 = Rust_hw3_2::calc3(x, z);
+    let result4:f32 = Rust_hw3_2::calc4(y, z);
+    let result5:f32 = Rust_hw3_2::calc5(y, z);
+    let result6:f32 = Rust_hw3_2::calc6(y);
 
-    let result1_1:f32 = Rust_hw3_2::calc1_(x, y, z);
-    let result2_1:f32 = Rust_hw3_2::calc2_(x, y, z);
-    let result3_1:f32 = Rust_hw3_2::calc3_(x, y, z);
-    let result4_1:f32 = Rust_hw3_2::calc4_(x, y, z);
-    let result5_1:f32 = Rust_hw3_2::calc5_(x, y, z);
-    let result6_1:f32 = Rust_hw3_2::calc6_(x, y, z);
+    let result1_1:f32 = Rust_hw3_2::calc1_(x);
+    let result2_1:f32 = Rust_hw3_2::calc2_(x, z);
+    let result3_1:f32 = Rust_hw3_2::calc3_(x, z);
+    let result4_1:f32 = Rust_hw3_2::calc4_(y, z);
+    let result5_1:f32 = Rust_hw3_2::calc5_(y, z);
+    let result6_1:f32 = Rust_hw3_2::calc6_(y);
 
     if x < y {
         println!("Fahr\tCelcius");
@@ -45,5 +45,3 @@ fn main(){
         println!("{}\t{:.1}", y, result6_1);
     }
 }
-
-
