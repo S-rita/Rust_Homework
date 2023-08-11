@@ -95,31 +95,25 @@ fn test_make_arrow1_recursive () {
 }
 
 
-fn make_arrow2_recursive(v: usize, i: usize, j: usize) -> String {
-    if i == 0 {
+fn make_arrow2_recursive(v: &[usize]) -> String {
+    if v.len() == 0 {
         String::new();
     }
 
-    let mut x = String::new();
+    let mut x = make_arrow2_recursive(&v[..v.len()-1]);
+    let n = v[v.len()-1];
 
-    let s = if i < v {
-        v - i - 1
-    } else {
-        i - v + 1
-    };
-
-    for _ in 0..s {
-        x.push(' ');
+    for i in 1..n {
+        x.push_str(&("").repeat(n-i));
+        x.push_str(&("*").repeat(i));
+        x.push('\n')
     }
 
-    for _ in 0..(2 * v - 1 - 2 * s) {
-        x.push('*');
+    for i in 0..n {
+        x.push_str(&("").repeat(i));
+        x.push_str(&("*").repeat(n-i));
+        x.push('\n')
     }
-
-    x.push('\n');
-
-    x.push_str(&make_arrow2_recursive(v, i + 1, 0));
-
     x
 }
 
