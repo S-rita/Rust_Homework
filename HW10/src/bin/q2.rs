@@ -10,25 +10,28 @@ fn vcat(img1: &[String], img2: &[String]) -> Vec<String> {
 }
 
 fn hcat(img1: &[String], img2: &[String]) -> Vec<String> {
-    let max_length = img1
-        .iter()
-        .chain(img2.iter())
-        .map(|s| s.len())
-        .max()
-        .unwrap_or(0);
-
     let mut hcat_result = Vec::new();
+    let longest1 = img1.iter().map(|x| x.len()).max().unwrap_or(0);
+    let longest2 = img2.iter().map(|x| x.len()).max().unwrap_or(0);
+    let max = longest1.max(longest2);
 
-    for (line1, line2) in img1.iter().zip(img2.iter()) {
-        let pad1 = max_length - line1.len();
-        let pad2 = max_length - line2.len();
-        let concatenated_line = format!("{}{}{}{}", line1, " ".repeat(pad1), line2, " ".repeat(pad2));
-        hcat_result.push(concatenated_line);
+    for (i, j) in img1.iter().zip(img2.iter()) {
+        let space = " ".repeat(max - i.len());
+        let mut concat = format!("{}{}", i, space);
+        concat.push_str(j);
+        hcat_result.push(concat);
+    }
+
+    if img1.len() > img2.len() {
+        hcat_result.push(img1[img1.len() - 1].clone());
+    } else if img1.len() < img2.len() {
+        let space2 = " ".repeat(max);
+        let concat2 = format!("{}{}", space2, img2[img2.len() - 1]);
+        hcat_result.push(concat2);
     }
 
     hcat_result
 }
-
 
 #[test]
 fn test_img_cat() {
