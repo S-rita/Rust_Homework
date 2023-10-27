@@ -2,7 +2,7 @@
 enum Text {
     Plain(String),
     Repeated(Box<Text>, usize),
-    Joined(Vec<Box<Text>>, Box<Text>), // Change the type of separator to Box<Text>
+    Joined(Vec<Box<Text>>, Box<Text>),
 }
 
 impl Text {
@@ -14,7 +14,7 @@ impl Text {
                 .iter()
                 .map(|part| part.value())
                 .collect::<Vec<String>>()
-                .join(&separator.value()), // Use separator.value() to get the separator string
+                .join(&separator.value()),
         }
     }
 }
